@@ -41,29 +41,29 @@
 			<jdbc.driver.groupId>mysql</jdbc.driver.groupId>
 			<jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
 			<jdbc.driver.version>5.1.22</jdbc.driver.version>
-		-->	
+		-->
 	</properties>
 
 	<prerequisites>
   		<maven>3.0.0</maven>
 	</prerequisites>
-	
+
 	<repositories>
 		<!-- 如有Nexus私服, 取消注释并指向正确的服务器地址.
 		<repository>
 			<id>nexus</id>
 			<name>Team Nexus Repository</name>
-			<url>http://localhost:8081/nexus/content/groups/public</url> 
+			<url>http://localhost:8081/nexus/content/groups/public</url>
 		</repository>
 		-->
 	</repositories>
 
-	<!-- 设定插件仓库 如有Nexus私服, 取消注释并指向正确的服务器地址. 
-	<pluginRepositories> 
-		<pluginRepository> 
+	<!-- 设定插件仓库 如有Nexus私服, 取消注释并指向正确的服务器地址.
+	<pluginRepositories>
+		<pluginRepository>
 			<id>nexus</id>
 			<name>Team Nexus Repository</name>
-			<url>http://localhost:8081/nexus/content/groups/public</url> 
+			<url>http://localhost:8081/nexus/content/groups/public</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
@@ -92,7 +92,7 @@
 			<version>1.7.3</version>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- Spring AOP end -->	
+		<!-- Spring AOP end -->
 
 		<!-- PERSISTENCE begin -->
 		<!-- hibernate -->
@@ -148,7 +148,7 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>opensymphony</groupId>
 			<artifactId>sitemesh</artifactId>
@@ -169,7 +169,7 @@
 			<scope>provided</scope>
 		</dependency>
 		<!-- WEB end -->
-		
+
 		<!-- SECURITY begin -->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
@@ -192,14 +192,14 @@
 			<version>1.8</version>
 		</dependency>
 		<!-- SECURITY end -->
-		
+
 		<!-- JSR303  BeanValidator -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>${hibernate-validator.version}</version>
 		</dependency>
-		
+
 		<!-- JSON begin -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -212,7 +212,7 @@
 			<version>${jackson.version}</version>
 		</dependency>
 		<!-- JSON end -->
-		
+
 		<!-- LOGGING begin -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -226,7 +226,7 @@
 			<version>${logback.version}</version>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<!-- 代码直接调用log4j会被桥接到slf4j -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -248,7 +248,7 @@
 	        <version>${slf4j.version}</version>
 	        <scope>runtime</scope>
 	    </dependency>
-	      	
+
 		<dependency>
 	 		<groupId>com.googlecode.log4jdbc</groupId>
 			<artifactId>log4jdbc</artifactId>
@@ -369,7 +369,7 @@
 		</dependency>
 		<!-- TEST end -->
 	</dependencies>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -403,7 +403,7 @@
 						<artifactId>commons-logging</artifactId>
 					</exclusion>
 				</exclusions>
-			</dependency>				
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -486,7 +486,7 @@
 					</instrumentation>
                 </configuration>
 			</plugin>
-			
+
 			<!-- enforcer插件, 避免被依赖的依赖引入过期的jar�?-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -523,7 +523,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 			<!-- jetty插件, 设定context path与spring profile -->
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
@@ -537,7 +537,7 @@
 						</systemProperty>
 					</systemProperties>
 					<useTestClasspath>true</useTestClasspath>
-				
+
 					<webAppConfig>
 						<contextPath>/${project.artifactId}</contextPath>
 					</webAppConfig>
@@ -547,17 +547,17 @@
 			<!-- resource插件 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resource-plugin</artifactId>
+				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.5</version>
 			</plugin>
-			
+
 			<!-- install插件 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-install-plugin</artifactId>
 				<version>2.5.1</version>
 			</plugin>
-			
+
 			<!-- ant插件 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -592,7 +592,7 @@
 				</plugins>
 			</build>
 		</profile>
-		
+
 		<!-- 执行@Category(Smoke.class)的TestCase -->
 		<profile>
 			<id>run-smoke</id>
@@ -604,11 +604,11 @@
 						<configuration>
 							<groups>org.springside.modules.test.category.Smoke</groups>
 						</configuration>
-					</plugin>				
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
-		
+
 		<!-- 刷新开发环境数据库 -->
 		<profile>
 			<id>refresh-db</id>
