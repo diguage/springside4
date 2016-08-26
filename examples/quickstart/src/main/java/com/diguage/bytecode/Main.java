@@ -55,19 +55,19 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("\n\n\nGet all classes in the package.");
-        List<Class<?>> classList = findAllClass();
-        classList.stream()
-                .map(Class::getName)
-                .forEach(System.out::println);
-        for (Class<?> clazz : classList) {
-            Method[] methods = clazz.getDeclaredMethods();
-            for (Method method : methods) {
-                new ByteBuddy()
-                        .redefine(clazz)
-                        .defineMethod(method.getName())
-            }
-
-        }
+//        List<Class<?>> classList = findAllClass();
+//        classList.stream()
+//                .map(Class::getName)
+//                .forEach(System.out::println);
+//        for (Class<?> clazz : classList) {
+//            Method[] methods = clazz.getDeclaredMethods();
+//            for (Method method : methods) {
+////                new ByteBuddy()
+////                        .redefine(clazz)
+////                        .defineMethod(method.getName());
+//            }
+//
+//        }
 
 
 //        System.out.println("\n\n");

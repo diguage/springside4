@@ -23,7 +23,7 @@ import org.springside.modules.persistence.SearchFilter;
 import org.springside.modules.persistence.SearchFilter.Operator;
 
 // Spring Bean的标识.
-@Component
+@Component("taskService")
 // 类中所有public函数都纳入事务管理的标识.
 @Transactional
 public class TaskService {
