@@ -34,6 +34,7 @@
 		<byte-buddy.version>1.4.19</byte-buddy.version>
 		<asm.version>5.0.4</asm.version>
 		<cglib.version>3.2.4</cglib.version>
+		<jamon.version>2.81</jamon.version>
 
 		<!-- Plugin的属性定义 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -93,6 +94,11 @@
 			<groupId>cglib</groupId>
 			<artifactId>cglib-nodep</artifactId>
 			<version>${cglib.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jamonapi</groupId>
+			<artifactId>jamon</artifactId>
+			<version>${jamon.version}</version>
 		</dependency>
 		<!--<dependency>-->
 			<!--<groupId>org.ow2.asm</groupId>-->
