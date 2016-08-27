@@ -67,22 +67,23 @@
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 
     <bean id="timingAdvice" class="org.springframework.aop.interceptor.PerformanceMonitorInterceptor">
-        <property name="useDynamicLogger" value="true"/>
+        <property name="useDynamicLogger" value="false"/>        <!-- 这里决定了日志打印在哪个 Logger 上。 -->
+        <property name="logTargetClassInvocation" value="true"/> <!-- 这里决定打印类型的名称，区别还没有搞清楚。 -->
     </bean>
 
-    <bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
-        <property name="target" ref="taskService"/>
-        <property name="interceptorNames">
-            <list>
-                <value>timingAdvice</value>
-            </list>
-        </property>
-    </bean>
+    <!--<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">-->
+        <!--<property name="target" ref="taskService"/>-->
+        <!--<property name="interceptorNames">-->
+            <!--<list>-->
+                <!--<value>timingAdvice</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
     <aop:config>
-        <aop:pointcut id="allMethods" expression="execution(* org.springside.examples.quickstart.service.task.TaskService.*(..))"/>
+        <aop:pointcut id="allMethods" expression="execution(* org.springside.examples.quickstart.service.*.*.*(..))"/>
         <aop:advisor advice-ref="timingAdvice" pointcut-ref="allMethods"/>
         <!--<aop:advisor advice-ref="timingAdvice" pointcut="execution(* org.springside.examples.quickstart.service.*.*(..))"/>-->
     </aop:config>
