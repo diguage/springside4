@@ -66,13 +66,12 @@
     <!-- JSR303 Validator定义 -->
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 
-    <bean id="timingAdvice" class="org.springframework.aop.interceptor.PerformanceMonitorInterceptor">
-        <property name="useDynamicLogger" value="false"/>        <!-- 这里决定了日志打印在哪个 Logger 上。 -->
-        <property name="logTargetClassInvocation" value="true"/> <!-- 这里决定打印类型的名称，区别还没有搞清楚。 -->
-    </bean>
+    <!--<bean id="timingAdvice" class="org.springframework.aop.interceptor.PerformanceMonitorInterceptor">-->
+        <!--<property name="useDynamicLogger" value="false"/>        &lt;!&ndash; 这里决定了日志打印在哪个 Logger 上。 &ndash;&gt;-->
+        <!--<property name="logTargetClassInvocation" value="true"/> &lt;!&ndash; 这里决定打印类型的名称，区别还没有搞清楚。 &ndash;&gt;-->
+    <!--</bean>-->
 
-    <bean id="jamonTimingAdvice" class="org.springframework.aop.interceptor.JamonPerformanceMonitorInterceptor">
-    </bean>
+    <bean id="jamonTimingAdvice" class="org.springframework.aop.interceptor.JamonPerformanceMonitorInterceptor"/>
 
     <!--<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">-->
         <!--<property name="target" ref="taskService"/>-->
@@ -87,7 +86,7 @@
 
     <aop:config>
         <aop:pointcut id="allMethods" expression="execution(* org.springside.examples.quickstart.service.*.*.*(..))"/>
-        <aop:advisor advice-ref="timingAdvice" pointcut-ref="allMethods"/>
+        <!--<aop:advisor advice-ref="timingAdvice" pointcut-ref="allMethods"/>-->
         <aop:advisor advice-ref="jamonTimingAdvice" pointcut-ref="allMethods"/>
         <!--<aop:advisor advice-ref="timingAdvice" pointcut="execution(* org.springside.examples.quickstart.service.*.*(..))"/>-->
     </aop:config>

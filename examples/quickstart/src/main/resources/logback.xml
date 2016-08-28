@@ -22,9 +22,9 @@
 	<!--log4jdbc -->
 	<logger name="jdbc.sqltiming" level="INFO"/>
 
-	<logger name="org.springframework.aop.interceptor.PerformanceMonitorInterceptor" level="TRACE" additivity="false">
-		<appender-ref ref="console"/>
-	</logger>
+	<!--<logger name="org.springframework.aop.interceptor.PerformanceMonitorInterceptor" level="TRACE" additivity="false">-->
+		<!--<appender-ref ref="console"/>-->
+	<!--</logger>-->
 
 	<logger name="org.springframework.aop.interceptor.JamonPerformanceMonitorInterceptor" level="TRACE" additivity="false">
 		<appender-ref ref="console"/>
